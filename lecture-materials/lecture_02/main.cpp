@@ -53,6 +53,18 @@ void drawScene(){
     }
     glEnd();
 
+    glColor3f(0, 1, 0);
+
+    glBegin(GL_POLYGON);
+
+        glVertex2f(-0.5, 0.5);
+
+        glVertex2f(-0.5, 0.8);
+
+        glVertex2f(-0.1, 0.5);
+
+    glEnd();
+
     // We have been drawing to the back buffer, put it in the front
     glutSwapBuffers();
 }
