@@ -22,6 +22,38 @@ void drawScene(){
     glColor3f(0, 0, 0);
     glLineWidth(2);
 
+    // Bottom of box
+    glBegin(GL_QUADS);
+    glVertex2f(-0.2 + shiftAmountX, 0.1 + shiftAmountY);
+    glVertex2f(1.4 + shiftAmountX, 0.1 + shiftAmountY);
+    glVertex2f(1.4 + shiftAmountX, 0.0 + shiftAmountY);
+    glVertex2f(-0.2 + shiftAmountX, 0.0 + shiftAmountY);
+    glEnd();
+
+    // Top of box
+    glBegin(GL_QUADS);
+    glVertex2f(-0.2 + shiftAmountX, 1.0 + shiftAmountY);
+    glVertex2f(1.4 + shiftAmountX, 1.0 + shiftAmountY);
+    glVertex2f(1.4 + shiftAmountX, 0.9 + shiftAmountY);
+    glVertex2f(-0.2 + shiftAmountX, 0.9 + shiftAmountY);
+    glEnd();
+
+    // Left side of box
+    glBegin(GL_QUADS);
+    glVertex2f(-0.2 + shiftAmountX, 1.0 + shiftAmountY);
+    glVertex2f(-0.1 + shiftAmountX, 1.0 + shiftAmountY);
+    glVertex2f(-0.1 + shiftAmountX, 0.0 + shiftAmountY);
+    glVertex2f(-0.2 + shiftAmountX, 0.0 + shiftAmountY);
+    glEnd();
+
+    // Right side of box
+    glBegin(GL_QUADS);
+    glVertex2f(1.4 + shiftAmountX, 1.0 + shiftAmountY);
+    glVertex2f(1.3 + shiftAmountX, 1.0 + shiftAmountY);
+    glVertex2f(1.3 + shiftAmountX, 0.0 + shiftAmountY);
+    glVertex2f(1.4 + shiftAmountX, 0.0 + shiftAmountY);
+    glEnd();
+
     // T
     // glColor3f(1.0f, 0.0f, 0.0f); // Red
     glBegin(GL_QUADS);
