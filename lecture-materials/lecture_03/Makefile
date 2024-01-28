@@ -1,5 +1,5 @@
 XPRA_LIST := $(shell xpra list)
-XPRA_CMD = xpra start --bind-tcp=0.0.0.0:8080 --tcp-auth=multifile:filename=/home/me/workspace/.theia/password.txt
+XPRA_CMD = xpra start --bind-tcp=0.0.0.0:8080 --mdns=no --dbus-launch='' --notifications=no --tcp-auth=multifile:filename=/home/me/workspace/.theia/password.txt
 DISPLAY=
 
 
@@ -69,6 +69,7 @@ endif
 
 .PHONY: install
 install:
+	@printf "socket-dir=/tmp\nsocket-dirs=/tmp\n" > ~/.config/xpra/xpra.conf
 	@mkdir -p /home/me/workspace/.theia
 	@touch /home/me/workspace/.theia/password.txt
 	@echo username\|password > /home/me/workspace/.theia/password.txt
