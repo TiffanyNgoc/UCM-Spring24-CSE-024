@@ -1,5 +1,8 @@
 #include <GL/freeglut.h>
 #include <iostream>
+#include "Point.h"
+#include "Button.h"
+
 
 using namespace std;
 
@@ -7,6 +10,19 @@ using namespace std;
 // Window width and height
 int width = 400;
 int height = 400;
+
+
+
+Point points[1000];
+int pCounter = 0;
+
+Button blueBtn(-0.8, -0.8, 0.4, 0.2, 0, 0, 1);
+Button redBtn(-0.3, -0.8, 0.4, 0.2, 1, 0, 0);
+
+float r = 1;
+float g = 0;
+float b = 0;
+
 
 
 // Convert window coordinates to Cartesian coordinates
@@ -21,6 +37,16 @@ void drawScene(){
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
     // Objects to be drawn go here
+
+    glPointSize(10);
+
+    for (int i = 0; i < pCounter; i++){
+        points[i].draw();
+    }
+
+    blueBtn.draw();
+    redBtn.draw();
+    
 
     // We have been drawing to the back buffer, put it in the front
     glutSwapBuffers();
@@ -40,12 +66,35 @@ void mouse(int button, int state, int x, int y) {
     float my = y;
     windowToScene(mx, my); 
 
+    if (button == 0 && state == 0){
+        points[pCounter] = Point(mx, my, r, g, b);
+        pCounter++;
+
+        if (blueBtn.inside(mx, my)){
+            cout << "Blue was clicked" << endl;
+            r = 0; g = 0; b = 1;
+        }
+        if (redBtn.inside(mx, my)){
+            cout << "Red was clicked" << endl;
+            r = 1; g = 0; b = 0;
+        }
+    }
+    glutPostRedisplay();
 }
 
 void motion(int x, int y) {
     /*
         x, y:   mouse location in window relative coordinates
     */
+    float mx = x;
+    float my = y;
+    windowToScene(mx, my); 
+
+    if (pCounter < 1000){
+        points[pCounter] = Point(mx, my, r, g, b);
+        pCounter++;
+    }
+    glutPostRedisplay();
 }
 
 void keyboard(unsigned char key, int x, int y) {
