@@ -32,8 +32,9 @@ Rectangle horizontal(-0.8, -0.8, 1.8, 0.2, 0.6, 0.6, 0.6);
 
 Button eraseBtn("Erase", 0.41, -0.8);
 Button clearBtn("Clear", 0.71, -0.8);
-Button incStrokeBtn("+", -0.99, 1);
-Button decStrokeBtn("-", -0.99, 0.8);
+Button incStrokeBtn(" + ", -0.999, 1);
+Button decStrokeBtn(" - ", -0.999, 0.8);
+
 // Convert window coordinates to Cartesian coordinates
 void windowToScene(float& x, float& y) {
     x = (2.0f * (x / float(width))) - 1.0f;
@@ -64,9 +65,6 @@ void drawScene(){
     greenBtn.draw();
     blueBtn.draw();
     purpleBtn.draw();
-
-    
-
 
     eraseBtn.render();
     clearBtn.render();
