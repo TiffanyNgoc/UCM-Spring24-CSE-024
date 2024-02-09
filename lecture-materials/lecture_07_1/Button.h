@@ -92,10 +92,10 @@ struct Button{
 
         glColor3f(0,0,0);
         if (down){
-            glRasterPos2f(x+0.025, y-h+0.055);
+            glRasterPos2f(x + 0.025, y - h + 0.055);
         }
         else{
-            glRasterPos2f(x+0.03, y-h+0.07);
+            glRasterPos2f(x + 0.03, y - h + 0.07);
         }
         unsigned char* caption = (unsigned char*) text.c_str();
         glutBitmapString(GLUT_BITMAP_9_BY_15, caption);
