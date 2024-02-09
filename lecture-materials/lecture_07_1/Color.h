@@ -76,8 +76,8 @@ struct Color{
 
     void decreaseStrokeSize() {
         strokeSize -= 1;
-        if (strokeSize < 0.1f) {
-            strokeSize = 0.1f;
+        if (strokeSize < 1) {
+            strokeSize = 1;
         }
     }
 };
