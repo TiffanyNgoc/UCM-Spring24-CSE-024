@@ -120,28 +120,58 @@ public:
             Scribble* newScribble = new Scribble();
             newScribble->addPoint(x, y, color);
             shapes[shapeCounter++] = newScribble;
+
+            if (selectedShape != -1) {
+                shapes[selectedShape]->deselect();
+                selectedShape = -1;
+            }
         }
         else if (selectedTool == ERASER){
             // shapes[shapeCounter] = new Scribble();
             // shapeCounter++;
             // ((Scribble*)shapes[shapeCounter-1])->addPoint(x, y, Color(1, 1, 1));
             eraseShape(x, y);
+
+            if (selectedShape != -1) {
+                shapes[selectedShape]->deselect();
+                selectedShape = -1;
+            }
         }
         else if (selectedTool == SQUARE){
             shapes[shapeCounter] = new Square(x, y, 0.2, 0.2, color);
             shapeCounter++;
+
+            if (selectedShape != -1) {
+                shapes[selectedShape]->deselect();
+                selectedShape = -1;
+            }
         }
         else if (selectedTool == CIRCLE) {
             shapes[shapeCounter] = new Circle(x, y, 0.1f, color);
             shapeCounter++;
+
+            if (selectedShape != -1) {
+                shapes[selectedShape]->deselect();
+                selectedShape = -1;
+            }
         }
         else if (selectedTool == TRIANGLE) {
             shapes[shapeCounter] = new Triangle(x, y, 0.2f, color);
             shapeCounter++;
+
+            if (selectedShape != -1) {
+                shapes[selectedShape]->deselect();
+                selectedShape = -1;
+            }
         }
         else if (selectedTool == OCTAGON) {
             shapes[shapeCounter] = new Octagon(x, y, 0.1f, color);
             shapeCounter++;
+
+            if (selectedShape != -1) {
+                shapes[selectedShape]->deselect();
+                selectedShape = -1;
+            }
         }
         else if (selectedTool == CLEAR) {
             clearScreen();
